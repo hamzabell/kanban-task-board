@@ -1,5 +1,4 @@
 import Switch from 'react-switch';
-import UseThemeSwitcher from '../../hooks/UseThemeSwitcher';
 
 function MobileMenu({ boardCount, menuOptions, onAddNewBoard, theme, toggle }) {
     return ( 
