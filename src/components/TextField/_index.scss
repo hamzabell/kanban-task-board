@@ -1,0 +1,48 @@
+@use '../../partials/typography';
+@use '../../partials/mixins' as *;
+@use '../../partials/variables';
+
+
+.text-field {
+    width: 29.5rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: .8rem;
+
+    @include for-device(tablet) {
+        width: 41.6rem;
+    }
+
+
+
+    &__label {
+        @include typography.body-md;
+        color: var(--label);
+    }
+
+    &__input {
+        width: 100%;
+        height: 4rem;
+        border-radius: 4px;
+        outline: none;
+        border: 1px solid var(--input-border);
+        background: var(--bg);
+        padding: .8rem 1.6rem;
+        color: var(--input-text);
+        opacity: .6;
+
+        &:active, &:focus {
+            opacity: 1;
+            border-color: variables.$purple;
+        }
+
+        &--error {
+            border: 1px solid var(--destructive);
+        }
+    }
+
+   
+
+
+}

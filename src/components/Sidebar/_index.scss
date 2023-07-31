@@ -1,0 +1,141 @@
+@use '../../partials/typography';
+@use '../../partials/variables';
+
+.app-sidebar {
+    width: 26.1rem;
+    min-height: 102.4rem;
+    background-color: var(--card-bg);
+    padding: 3.2rem 0 3.2rem 0;
+    display: flex;
+    flex-direction: column;
+
+    &__icon {
+      width: 2.4rem;
+      height: 2.5rem;
+
+       &-wrapper {
+            width: 15.3rem;
+            height: 2.52rem;
+            display: flex;
+            column-gap: 1.6rem;
+            padding-left: 2.6rem;
+       }
+
+       &-brand-name {
+            filter: var(--sidebar-brand-name);
+       }
+    }
+
+    &__title {
+        @include typography.body-md;
+        color: variables.$medium-grey;
+        text-transform: uppercase;
+        margin: 5rem 0 1.9rem 2.4rem;
+    }
+
+    &__boardlist {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__addboard {
+        padding-left: 2.4rem;
+        width: 24rem;
+        height: 4.8rem;
+        display: flex;
+        column-gap: 1.2rem;
+        cursor: pointer;
+        margin-top: 2.4rem;
+
+        &-icon {
+            margin-top: .3rem;
+        }
+
+        &-cta {
+            @include typography.heading-md;
+            color: variables.$purple;
+            margin: 0;
+        }
+    }
+
+
+    &__bottom {
+        padding: 0 1.3rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-top: auto;
+    }
+    &__theme-switch {
+        background: var(--bg);
+        width: 23.5rem;
+        height: 4.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 2.3rem;
+    }
+
+    &__switch {
+        width: 4rem;
+        height: 2rem;
+        border-radius: 12px;
+    }
+
+
+
+}
+
+
+.sidebar-action {
+    width: 24rem;
+    height: 4.8rem;
+    padding: 1.6rem 2.4rem;
+    display: flex;
+    column-gap: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+        border-radius: 0 100px 100px 0;
+        background: var(--sidebar-item-hover);
+
+        .sidebar-action__title {
+            color: variables.$purple;
+        }
+
+        .sidebar-action__icon > svg > path {
+            fill: variables.$purple;
+        }
+    }
+
+    &__icon {
+        width: 1.6rem;
+        height: 1.6rem;
+
+        & > svg > path {
+            fill: variables.$medium-grey;
+        }
+    }
+
+    &__title {
+        @include typography.heading-md;
+        color: variables.$medium-grey;
+        margin: 0;
+    }
+
+    &--selected {
+        border-radius: 0 100px 100px 0;
+        background: variables.$purple;
+
+        .sidebar-action__icon {
+            & > svg > path {
+                fill: variables.$white;
+            }
+        }
+
+        .sidebar-action__title {
+            color: variables.$white;
+        }
+
+    }
+}

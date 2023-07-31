@@ -1,0 +1,30 @@
+@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{$key}: $value
+    }
+}
+
+
+@mixin for-device($breakpoint) {
+   
+
+    @if $breakpoint == mobile {
+        @media screen and (max-width: 375px) {
+            @content;
+        }
+    }
+
+
+    @if $breakpoint == tablet {
+        @media screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+
+    @if $breakpoint == desktop {
+        @media screen and (min-width: 1440px) {
+            @content;
+        }
+    }
+}

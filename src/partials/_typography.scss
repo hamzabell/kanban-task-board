@@ -1,0 +1,30 @@
+@mixin _init_typography($weight, $size, $height) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+}
+
+
+@mixin heading-xl {
+    @include _init_typography(bold, 24px , 30px);
+}
+
+@mixin heading-lg {
+    @include _init_typography(bold, 18px, 23px);
+}
+
+@mixin heading-md {
+    @include _init_typography(bold, 15px, 19px);
+}
+
+@mixin heading-sm {
+    @include _init_typography(bold, 12px, 15px);
+}
+
+@mixin body-lg {
+    @include _init_typography(500, 13px, 23px);
+}
+
+@mixin body-md {
+    @include _init_typography(bold, 12px, 15px);
+}

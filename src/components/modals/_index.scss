@@ -1,0 +1,335 @@
+@use '../../partials/mixins' as *;
+@use '../../partials';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.6);
+
+
+    &__content {
+        cursor: pointer;
+        position: fixed;
+        background: var(--card-bg);
+        width: 34.3rem;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2.4rem;
+        border-radius: 6px;
+        z-index: 10;
+
+        @include for-device(tablet) {
+            width: 48rem;
+            padding: 3.2rem;
+        }
+
+        &--menu {
+            width: 26.4rem;
+            top: 5%;
+            padding: 0;
+            transform: translate(-50%, 0);
+        }
+
+    }
+
+}
+
+.delete-confirmation {
+
+    &__title {
+        color: partials.$red;
+        @include partials.heading-lg;
+    }
+
+    &__message {
+        @include partials.body-lg;
+        color: partials.$medium-grey;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.6rem;
+
+        @include for-device(tablet) {
+            flex-direction: row;
+            column-gap: 1.6rem;
+            row-gap: 0;
+        }
+
+        &-button {
+            width: 29.5rem !important;
+            height: 4rem !important;
+            @include for-device(tablet) {
+                width: 20rem  !important;
+            }
+        }
+    }
+
+}
+
+.mobile-menu {
+    &__theme-switch {
+        background: var(--bg);
+        width: 23.5rem;
+        height: 4.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 2.3rem;
+        margin: auto;
+        margin-bottom: 1.6rem;
+    }
+
+    &__switch {
+        width: 4rem;
+        height: 2rem;
+        border-radius: 12px;
+    }
+
+    &__title {
+        color: partials.$medium-grey;
+        @include partials.body-md;
+        margin-left: 2.4rem;
+        margin-top: 1.6rem;
+    }
+
+    &__menu-options {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    &__addboard {
+        padding-left: 2.4rem;
+        width: 24rem;
+        height: 4.8rem;
+        display: flex;
+        column-gap: 1.2rem;
+        cursor: pointer;
+        margin-top: 2.4rem;
+
+        &-icon {
+            margin-top: .3rem;
+        }
+
+        &-cta {
+            @include partials.heading-md;
+            color: partials.$purple;
+            margin: 0;
+        }
+    }
+}
+
+.task-action {
+
+    &__title {
+        @include partials.heading-lg;
+        color: var(--input-text);
+        margin-bottom: 2rem;
+    }
+
+    &__subtitle {
+        color: var(--label);
+        margin-top: 4rem;
+        margin-bottom: .8rem;
+    }
+
+    &__field-group {
+        display: flex;
+        column-gap: 1.6rem;
+    }
+
+    &__field-entry {
+        width: 26.4rem;
+        height: 4rem;
+        border-radius: 4px;
+        border: 1px solid var(--input-border);
+        background: var(--bg);
+        color: var(--input-text);
+        padding: .8rem 1.6rem;
+        outline: none;
+        opacity: .6;
+        @include for-device(tablet) {
+            width: 38.5rem;
+        }
+
+        &:active, &:focus {
+            opacity: 1;
+            border-color: partials.$purple;
+        }
+
+    }
+    &__remove-entry {
+        margin-top: 1.3rem;
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.2rem;
+        margin-top: .8rem;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.4rem;
+        margin-top: .8rem;
+    }
+}
+
+.board-action {
+    display: flex;
+    flex-direction: column;
+
+
+    &__title {
+        @extend .task-action__title;
+    }
+
+
+    &__subtitle {
+        @extend .task-action__subtitle;
+        margin-top: 1.2rem;
+    }
+
+    &__columns {
+        @extend .task-action__columns;
+        margin-top: 1.2rem;
+    }
+
+
+    &__field-group {
+        @extend .task-action__field-group;
+    }
+    &__description {
+        width: 29.5rem;
+        height: 11.2rem;
+        padding: 1.6rem .8rem;
+        outline: none;
+        border: 1px solid var(--input-border);
+        color: var(--input-text);
+        background: var(--bg);
+        border-radius: 4px;
+        margin-top: 1.2rem;
+        font-family: 'Kumbh Sans', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+
+        &-label {
+            @include partials.body-md;
+            color: var(--label);
+            margin-top: 3.2rem;
+        }
+
+
+        &:active, &:focus {
+            opacity: 1;
+            border-color: partials.$purple;
+        }
+
+
+        @include for-device(tablet) {
+            width: 41.6rem;
+        }
+    }
+
+    &__status-dropdown {
+        margin-bottom: 3.2rem;
+
+        & > .drop-down__select  {
+            text-transform: capitalize;
+        }
+    }
+
+    &__field-entry {
+        @extend .task-action__field-entry;
+    }
+
+    &__remove-entry {
+        @extend .task-action__remove-entry ;
+    }
+
+    &__button {
+        margin: 2.4rem 0 2.4rem 0;
+    }
+
+
+}
+
+.task-info {
+    &__title {
+        @include partials.heading-lg;
+        color: var(--input-text);
+
+        &-wrapper {
+            display: flex;
+            column-gap: 2.4rem;
+            position: relative;
+        }
+
+        &-icon {
+            width: 3rem;
+            height: 2rem;
+            align-self: center;
+        }
+    }
+
+    &__body {
+
+    }
+
+    &__options-dropdown {
+        width: 19.2rem;
+        height: 9.4rem;
+        padding: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.6rem;
+        background: var(--options-bg);
+        border-radius: 8px;
+        position: absolute;
+        right: -7rem;
+        top: 7rem;
+    }
+
+    &__option {
+        @include partials.body-lg;
+        color: partials.$medium-grey;
+        cursor: pointer;
+
+        &--is-destructive {
+            color: partials.$red;
+        }
+    }
+
+    &__description {
+        @include partials.body-lg;
+        color: partials.$medium-grey;
+    }
+
+    &__subtask-label {
+        @include partials.body-md;
+        color: var(--label);
+    }
+
+    &__status {
+
+        &-wrapper {
+            margin-top: 2.4rem;
+            margin-bottom: 3.2rem;
+        }
+
+       
+        &-dropdown {
+            & > .drop-down__select  {
+                text-transform: capitalize;
+            }
+        }
+    }
+}

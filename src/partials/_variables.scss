@@ -1,0 +1,84 @@
+$black: #000112;
+$white: #FFFFFF;
+$very-dark-grey: #20212C;
+$medium-grey: #828FA3;
+$dark-grey: #2B2C37;
+$lines-dark: #3E3F4E;
+$lines-light: #E4EBFA;
+$purple: #635FC7;
+$purple-hover: #A8A4FF;
+$red: #EA5555;
+$red-hover: #FF9898;
+$secondary-purple: #635FC710;
+$light-grey: #F4F7FD;
+$icon-on-white: invert(60%) sepia(9%) saturate(704%) hue-rotate(177deg) brightness(92%) contrast(91%);
+$icon-on-purple: invert(100%) sepia(6%) saturate(7351%) hue-rotate(286deg) brightness(151%) contrast(101%);
+$black-filter: invert(0%) sepia(98%) saturate(5%) hue-rotate(108deg) brightness(112%) contrast(100%);
+
+$--bg:--bg;
+$--primary: --primary;
+$--secondary: --secondary;
+$--destructive: --destructive;
+$--text-on-primary: --text-on-primary;
+$--text-on-secondary: --text-on-secondary;
+$--checkbox-bg: --checkbox-bg;
+$--checkbox-highlight: --checkbox-highlight;
+$--input-bg: --input-bg;
+$--dropdown-bg: --dropdown-bg;
+$--primary-hover: --primary-hover;
+$--secondary-hover: --secondary-hover;
+$--destructive-hover: --destructive-hover;
+$--label: --label;
+$--input-border: --input-border;
+$--input-text: --input-text;
+$--card-bg: --card-bg;
+$--sidebar-brand-name: --sidebar-brand-name;
+$--sidebar-item-hover: --sidebar-item-hover;
+$--options-bg: --options-bg;
+
+$theme-map-light: (
+    $--primary: $purple,
+    $--secondary: $secondary-purple,
+    $--destructive: $red,
+    $--text-on-primary: $white,
+    $--text-on-secondary: $purple,
+    $--checkbox-bg: $light-grey,
+    $--checkbox-highlight: $purple-hover,
+    $--input-bg: $white,
+    $--dropdown-bg: $lines-light,
+    $--primary-hover: $purple-hover,
+    $--secondary-hover: #635FC725,  
+    $--destructive-hover:$red-hover,
+    $--bg: $light-grey,
+    $--label: $medium-grey,
+    $--input-border: #828FA3,
+    $--input-text: $black,
+    $--card-bg: $white,
+    $--sidebar-brand-name: $black-filter,
+    $--sidebar-item-hover: $light-grey,
+    $--options-bg: $white
+);
+
+
+$theme-map-dark: (
+    $--primary: $purple,
+    $--secondary: $white,
+    $--destructive: $red,
+    $--text-on-primary: $white,
+    $--text-on-secondary: $purple,
+    $--checkbox-bg: $very-dark-grey,
+    $--checkbox-highlight: $purple,
+    $--input-bg: $dark-grey,
+    $--dropdown-bg: $very-dark-grey,
+    $--primary-hover: $purple-hover,
+    $--secondary-hover: $white,  
+    $--destructive-hover:$red-hover,
+    $--bg: $very-dark-grey,
+    $--label: $white,
+    $--input-border: #828FA325,
+    $--input-text: $white,
+    $--card-bg: $dark-grey,
+    $--sidebar-brand-name: $icon-on-purple,
+    $--sidebar-item-hover: $white,
+    $--options-bg: $very-dark-grey
+)

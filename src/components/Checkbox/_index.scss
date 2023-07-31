@@ -1,0 +1,50 @@
+@use '../../partials/typography';
+@use '../../partials/mixins' as *;
+
+
+.checkbox-container {
+    width: 29.5rem;
+    min-height: 5.9rem;
+    background: var(--checkbox-bg);
+    padding: 1.2rem;
+    display: flex;
+    column-gap: 1.6rem;
+
+    @include for-device(tablet) {
+        width: 41.6rem;
+    }
+
+
+
+    &:hover {
+        background: var(--checkbox-highlight);
+    }
+
+    &__checkbox {
+        min-width: 1.6rem;
+        min-height: 1.6rem;
+        accent-color: var(--bg);
+        cursor: pointer;
+    }
+
+    &__title {
+        @include typography.body-md;
+        color: var(--input-text);
+
+        &--selected {
+            text-decoration: line-through;
+            opacity: .6;
+
+        }
+    }
+}
+
+
+
+.checkbox-group {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.8rem;
+}

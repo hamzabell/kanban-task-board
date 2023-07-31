@@ -1,0 +1,47 @@
+@use '../../partials/typography';
+@use '../../partials/mixins' as *;
+
+.button {
+    @include typography.heading-md;
+    border-radius: 24px;
+    color: var(--text-on-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    width: 29.5rem;
+    height: 4rem;
+
+    @include for-device(tablet) {
+        width: 41.6rem;
+    }
+
+    &:disabled {
+        opacity: .6;
+    }
+
+    &--destructive {
+        background: var(--destructive);
+        &:hover {
+            background: var(--destructive-hover);
+        }
+    }
+
+    &--secondary {
+        background: var(--secondary);
+        color: var(--text-on-secondary);
+
+        &:hover {
+            background: var(--secondary-hover);
+        }
+    }
+
+    &--primary {
+        background: var(--primary);
+        &:hover {
+            background: var(--primary-hover);
+        }
+    }
+
+}
