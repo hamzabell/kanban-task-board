@@ -1,11 +1,7 @@
 import classnames from "../../utils/classnames";
-import UseThemeSwitcher from "../../hooks/UseThemeSwitcher";
 import Switch from 'react-switch';
 
-function Sidebar({ boardCount, hidesidebar, onAddNewBoard, children }) {
-
-    const {theme, toggle} = UseThemeSwitcher();
-
+function Sidebar({ boardCount, hidesidebar, onAddNewBoard, children, theme, toggle }) {
     return ( 
         <div className="app-sidebar">
             <div className="app-sidebar__top">
