@@ -141,7 +141,7 @@ export const TaskInfoModal = {
         description: "We know what we're planning to build for version one. Now we need to finalise the first pricing model we'll use. Keep iterating the subtasks until we have a coherent proposition.",
         completed: 1,
         total: 3,
-        currentStatus: 'todo',
+        currentStatus: 'doing',
         statuses: ['todo', 'doing', 'done'],
         handlerCheck: (v) => console.log(v),
         optionClicked: (v) => console.log(v),
