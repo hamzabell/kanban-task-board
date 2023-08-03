@@ -3,7 +3,7 @@ import Switch from 'react-switch';
 
 function Sidebar({ boardCount, hidesidebar, onAddNewBoard, children, theme, toggle }) {
     return ( 
-        <div className="app-sidebar">
+        <aside className="app-sidebar">
             <div className="app-sidebar__top">
                 <div className="app-sidebar__icon-wrapper">
                     <svg className="app-sidebar__icon" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,14 +47,14 @@ function Sidebar({ boardCount, hidesidebar, onAddNewBoard, children, theme, togg
                     {hidesidebar}
                 </div>
             </div>
-        </div>
+        </aside>
     );
 }
 
 
-export const SidebarAction = ({ title, icon, selected,  onClick }) => {
+export const SidebarAction = ({ id, title, icon, selected,  onClick }) => {
     return (
-        <div className={classnames("sidebar-action", { "sidebar-action--selected": selected })} onClick={(e) => onClick(e)}>
+        <div className={classnames("sidebar-action", { "sidebar-action--selected": selected })} onClick={() => onClick(id)}>
             <div className="sidebar-action__icon">
                 {icon}
             </div>

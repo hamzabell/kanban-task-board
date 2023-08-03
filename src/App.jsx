@@ -1,43 +1,40 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.scss'
-import Button from './components/button'
-import useModal from './hooks/useModal'
+import {  createHashRouter, RouterProvider } from 'react-router-dom';
+import { Provider, useSelector } from 'react-redux';
+import store from './store';
+import MainPage from './pages';
+import { debounce } from './utils/debounce';
+import { saveState } from './store/browser-storage';
 
 
-const text = () => <h1>Hello World!</h1>
+store.subscribe(
+  debounce(() => {
+    saveState(store.getState());
+  })
+)
 
 
-const Page = ({ menu }) => {
-    const { ModalContent, toggle }  = useModal(text, menu)
-    return (
-        <>
-            <button onClick={() => toggle()}>Open Modal</button>
 
-            <ModalContent />
-        </>
-    )
-}
+const router = createHashRouter([
+  {
+    path: '/',
+    element: <MainPage />
+  },
+  {
+    path: '/:boardId',
+    element: <MainPage />
+  }
+])
+
 
 function App() {
-  const [theme, setTheme] = useState('light')
-  const { ModalContent, toggle } = useModal(Page)
   return (
-    <>
-      <div>
-        <Button primary onClick={() => {
-          const currentTheme = theme == 'light' ? 'dark': 'light';
-          document.documentElement.className = currentTheme;
-          setTheme(currentTheme);
-
-        }}>Switch theme</Button>
-
-
-        <Button onClick={() => toggle()}>Open Modal</Button>
-      </div>
-
-      <ModalContent />
-    </>
+      <Provider store={store}>
+        <RouterProvider router={router}/>
+      </Provider>
   )
 }
 
 export default App
+

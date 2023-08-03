@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "../../utils/classnames";
 
 const HeaderLogo = () => (
     <div className="headerlogo">
@@ -24,7 +25,7 @@ export const OptionsIcon = ({ ...other }) => (
 
 
 
-function Header({ boardName, hasSidebar, onAddTask, openNav, onOptionsClick }) {
+function Header({ boardName, hasSidebar, onAddTask, openNav, onOptionsClick, hideRight }) {
     const [showOptions, setShowOptions] = React.useState(false);
 
     const optionClicked = (option) => {
@@ -34,7 +35,8 @@ function Header({ boardName, hasSidebar, onAddTask, openNav, onOptionsClick }) {
     return (
         <header className="app-header">
             <div className="app-header__left">
-                <div className="app-header__logo" style={{ display: !hasSidebar ? 'block' :'none'}}>
+                
+                <div className={classnames("app-header__logo", { "app-header__logo--sidebar-none": hasSidebar})}>
                     <HeaderLogo />
                 </div>
                 <div className="app-header__title" onClick={() => openNav()}>
@@ -43,26 +45,28 @@ function Header({ boardName, hasSidebar, onAddTask, openNav, onOptionsClick }) {
                     </h5>
                 </div>
             </div>
-            <div className="app-header__right">
-                
-                <button className="app-header__newtask" onClick={() => onAddTask()}>
-                    +
-                    <span className="app-header__newtask-title">
-                        Add New Task
-                    </span>
-                </button>
+            {hideRight && (
+                <div className="app-header__right">
+                    
+                    <button className="app-header__newtask" onClick={() => onAddTask()}>
+                        +
+                        <span className="app-header__newtask-title">
+                            Add New Task
+                        </span>
+                    </button>
 
-                <OptionsIcon  onClick={() => setShowOptions(prev => !prev)} className="app-header__newtask-options" />
+                    <OptionsIcon  onClick={() => setShowOptions(prev => !prev)} className="app-header__newtask-options" />
 
-                {
-                    showOptions && (
-                        <div className="app-header__options-dropdown">
-                            <a className="app-header__option" onClick={() => optionClicked('edit')}>Edit Board</a>
-                            <a className="app-header__option app-header__option--is-destructive" onClick={() => optionClicked('delete')}>Delete Board</a>
-                        </div>
-                    )
-                }
-            </div>
+                    {
+                        showOptions && (
+                            <div className="app-header__options-dropdown">
+                                <a className="app-header__option" onClick={() => optionClicked('edit')}>Edit Board</a>
+                                <a className="app-header__option app-header__option--is-destructive" onClick={() => optionClicked('delete')}>Delete Board</a>
+                            </div>
+                        )
+                    }
+                </div>
+            )}
         </header>
     );
 }

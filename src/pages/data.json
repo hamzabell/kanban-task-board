@@ -1,0 +1,43 @@
+{
+    "boards": [
+        { "id": 1, "title": "Platform Launch" },
+        { "id": 2, "title": "Marketing Plan" },
+        { "id": 3, "title": "Road Map" }
+    ],
+    "columns": {
+        "1": {
+            "statuses": [
+                { 
+                    "id": 1,
+                    "name": "todo"
+                },
+                { 
+                    "id": 2,
+                    "name": "doing"
+                },
+                { 
+                    "id": 3,
+                    "name": "done"
+                }
+            ],
+            "tasks": {
+                "1": [{
+                    "id": 1,
+                    "title": "Authentication endpoints",
+                    "description": "Create authentication endoints for vlogin",
+                    "completed": [0],
+                    "subtasks": [
+                        {
+                            "value": "Create User Model"
+                        },
+                        {
+                            "value": "Deploy Endpoint"
+                        }
+                    ],
+                    "status": 1
+                }]
+            }
+
+        }
+    }
+}

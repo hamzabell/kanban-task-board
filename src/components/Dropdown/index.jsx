@@ -5,8 +5,8 @@ const Dropdown = React.forwardRef(({ label, defaultMessage, otherClasses, childr
     return ( 
         <div className={classnames("drop-down", otherClasses)}>
             <label className="drop-down__label">{label}</label>
-            <select {...other} className="drop-down__select" ref={ref}>
-                <option value={null} selected disabled>{defaultMessage}</option>
+            <select {...other} className="drop-down__select" ref={ref} defaultValue={null}>
+                <option value={null} disabled>{defaultMessage}</option>
                 {children}
             </select>
             

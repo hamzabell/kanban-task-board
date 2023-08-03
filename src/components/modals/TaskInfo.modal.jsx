@@ -3,11 +3,14 @@ import Dropdown from '../Dropdown';
 import CheckBoxGroup from '../Checkbox/CheckboxGroup';
 import Checkbox from '../Checkbox';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
 
-function TaskInfo({ title, description, completed, total, currentStatus, statuses, handlerCheck, subtasks, optionClicked, onStatusChange  }) {
+function TaskInfo({ id, statuses, handlerCheck, subtasks, optionClicked, onStatusChange  }) {
 
+    const tasks = useSelector(state => state.tasks.tasks);
+    const selectedTask = useMemo(() => tasks.filter(x => x.id == id)[0], [tasks, id]);
     const [showOptions, setShowOptions] = React.useState(false);
 
     const onClick = (option) => {
@@ -18,7 +21,7 @@ function TaskInfo({ title, description, completed, total, currentStatus, statuse
     return ( 
         <div className="task-info">
             <div className="task-info__title-wrapper">
-                <h1 className="task-info__title">{title}</h1>
+                <h1 className="task-info__title">{selectedTask.title}</h1>
                 <OptionsIcon  className="task-info__title-icon" onClick={() => setShowOptions(prev=> !prev)} />
 
                 {
@@ -36,18 +39,18 @@ function TaskInfo({ title, description, completed, total, currentStatus, statuse
 
             <div className="task-info__body">
                 <p className="task-info__description">
-                    {description}
+                    {selectedTask.description}
                 </p>
 
 
                 <div className="task-info__subtasks-wrapper">
-                    <h1 className="task-info__subtask-label">Subtasks ({completed} of {total})</h1>
+                    <h1 className="task-info__subtask-label">Subtasks ({selectedTask.completed.length} of {selectedTask.subtasks.length})</h1>
 
                     <div className="task-info__subtasks">
                         <CheckBoxGroup>
                             {
-                                subtasks.map(x => (
-                                    <Checkbox id={x.id} title={x.title} onCheck={handlerCheck}  status={x.status}/>
+                                subtasks.map((x, idx) => (
+                                    <Checkbox id={x.id} title={x.value} onCheck={() => handlerCheck(idx)}  status={selectedTask.completed.includes(idx)}/>
                                 ))
                             }
                         </CheckBoxGroup>
@@ -55,8 +58,8 @@ function TaskInfo({ title, description, completed, total, currentStatus, statuse
                 </div>
 
                 <div className="task-info__status-wrapper">                    
-                    <Dropdown label="Current Status" value={currentStatus} otherClasses="task-info__status-dropdown" onChange={e => onStatusChange(e.target.value)}>
-                        {statuses.map(x => <option value={x}>{x}</option>)}
+                    <Dropdown label="Current Status" value={selectedTask.status} otherClasses="task-info__status-dropdown" onChange={e => onStatusChange(e.target.value)}>
+                        {statuses.map(x => <option value={x.id}>{x.name}</option>)}
                     </Dropdown>
                 </div>
             </div>

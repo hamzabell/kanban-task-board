@@ -17,7 +17,6 @@ function Board({ onSubmit, defaultValues }) {
     const { fields, remove, append } = useFieldArray({ control, name: 'columns' });
 
     
-
     return (  
         <form onSubmit={handleSubmit(onSubmit)} className="task-action">
             <h1 className="task-action__title">{ defaultValues ? 'Edit' : 'Add New' } Board</h1>
@@ -30,7 +29,7 @@ function Board({ onSubmit, defaultValues }) {
                 {
                     fields.map((item, index) => (
                         <div className="task-action__field-group" key={item.id}>
-                            <input type="text" className="task-action__field-entry" {...register(`columns.${index}.value`)} />
+                            <input type="text" className="task-action__field-entry" {...register(`columns.${index}.name`)} />
                             <DeleteIcon className="task-action__remove-entry"  onClick={() => remove(index)}/>
                         </div>
                     ))
@@ -38,7 +37,7 @@ function Board({ onSubmit, defaultValues }) {
                 
 
                 <div className="task-action__buttons">
-                    <Button type="button" secondary onClick={() => append("")}> + Add New Column</Button>
+                    <Button type="button" secondary onClick={() => append({  name: "" })}> + Add New Column</Button>
 
                     <Button type="submit" primary>{ defaultValues ? 'Save Changes' : 'Create New Board' }</Button>
                 </div>

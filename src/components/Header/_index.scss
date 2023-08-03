@@ -11,6 +11,15 @@
     padding: 1.6rem 2.4rem 0 2.4rem;
 
 
+    &__logo {
+        &--sidebar-none {
+            @include for-device(tablet) {
+                display: none;
+            }
+        }
+    }
+
+
     &__left {
         display: flex;
         column-gap: 1.6rem;

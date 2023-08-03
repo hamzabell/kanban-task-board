@@ -1,4 +1,10 @@
 import classnames from "../../utils/classnames";
+import DeleteConfirmation from "./DeleteConfirmation.modal";
+import MobileMenu from "./MobileMenu.modal";
+import TaskModal from './Task.modal';
+import TaskInfoModal from './TaskInfo.modal';
+import BoardModal from './Board.modal';
+
 
 function ModalContainer({  children, menu, setModalStatus }) {
     return (
@@ -14,3 +20,12 @@ function ModalContainer({  children, menu, setModalStatus }) {
 }
 
 export default ModalContainer;
+
+
+export {
+    DeleteConfirmation,
+    MobileMenu,
+    TaskModal,
+    TaskInfoModal,
+    BoardModal
+}

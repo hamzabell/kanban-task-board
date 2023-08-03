@@ -1,6 +1,6 @@
 import Switch from 'react-switch';
 
-function MobileMenu({ boardCount, menuOptions, onAddNewBoard, theme, toggle }) {
+function MobileMenu({ boardCount, children, onAddNewBoard, theme, toggle }) {
     return ( 
         <div className="mobile-menu">
             <h1 className="mobile-menu__title">
@@ -8,7 +8,7 @@ function MobileMenu({ boardCount, menuOptions, onAddNewBoard, theme, toggle }) {
             </h1>
 
             <div className="mobile-menu__menu-options">
-                {menuOptions}
+                {children}
             </div>
 
 

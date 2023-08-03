@@ -10,7 +10,7 @@ function Task({ onSubmit, defaultValues, statusOptions }) {
         defaultValues
     });
     const { fields, remove, append } = useFieldArray({ control, name: 'subtasks' });
-    console.log(statusOptions);
+    
 
     return ( 
         <form className="board-action" onSubmit={handleSubmit(onSubmit)}>
@@ -21,7 +21,7 @@ function Task({ onSubmit, defaultValues, statusOptions }) {
             
             <label htmlFor="description" className='board-action__description-label'>
                 Description
-                <textarea id="description" className='board-action__description' {...register('description')}></textarea>
+                <textarea style={{ resize: 'none'}} id="description" className='board-action__description' {...register('description')}></textarea>
             </label>
 
             <h6 className="board-action__subtitle">Subtasks</h6>
@@ -40,7 +40,7 @@ function Task({ onSubmit, defaultValues, statusOptions }) {
             </div>
 
             <Dropdown defaultMessage="Select Task Status" label="Status" otherClasses="board-action__status-dropdown" {...register('status')}>
-                {statusOptions.map(x => <option value={x}>{x}</option>)}
+                {statusOptions.map((x, idx) => <option key={idx} value={x.id}>{x.name}</option>)}
             </Dropdown>
 
 
