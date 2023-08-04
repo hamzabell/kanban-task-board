@@ -34,12 +34,12 @@ function Header({ boardName, hasSidebar, onAddTask, openNav, onOptionsClick, hid
     }
     return (
         <header className="app-header">
-            <div className="app-header__left">
+            <div className="app-header__left" onClick={() => openNav()}>
                 
                 <div className={classnames("app-header__logo", { "app-header__logo--sidebar-none": hasSidebar})}>
                     <HeaderLogo />
                 </div>
-                <div className="app-header__title" onClick={() => openNav()}>
+                <div className="app-header__title" >
                     <h5 className="app-header__boardname">
                         {boardName}
                     </h5>

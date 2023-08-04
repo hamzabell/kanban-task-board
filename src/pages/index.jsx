@@ -15,7 +15,7 @@ import { toggleSidebar, toggleTheme } from '../store/reducers/app.slice';
 
 
 
-export const mobileSize = 375;
+export const mobileSize = 768;
 
 
 export const OpenSidebarIcon = ({ ...other }) => (
@@ -41,6 +41,10 @@ export const NoBoardsCreated = ({ handler }) => (
     </div>
 )
 
+
+export const AddNewColumn = () => (
+    <></>
+)
 
 function HomePage() {
     let { boardId }= useParams();
@@ -133,7 +137,9 @@ function HomePage() {
                                     <>
                                         {
                                             currentBoard?.columns.length > 0 ? (
-                                                <TasksGroup boardId={boardId} />
+                                                <>
+                                                    <TasksGroup boardId={boardId} />
+                                                </>
                                             )
                                             :
                                             (
